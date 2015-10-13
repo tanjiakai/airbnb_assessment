@@ -2,11 +2,11 @@
 <h2><%= @booking.title %></h2>
 <p><%= @booking.description %></p>
 <p><%= @booking.price %></p>
-<form action="/bookings/new" method="post">
+<form action="/bookings" method="post">
   <input type="date" name="date">
   <input type="submit" value="Book!">
 </form>
-<a href="/properties">Home</a>
+<p><a href="/home">Home</a></p>
 <form action="/sessions" method="post">
   <input name="_method" type="hidden" value="delete" />
   <input type="submit" value="Logout">

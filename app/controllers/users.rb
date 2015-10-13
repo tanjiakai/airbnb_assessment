@@ -5,17 +5,17 @@ end
 post '/sessions' do
   if User.exist?(params[:username])
     if User.authenticate?(params[:username], params[:password])
-        session[:user] = User.find_by(username: params[:username])
-      redirect to '/properties'
+        session[:user_id] = User.find_by(username: params[:username]).id
+      redirect to '/home'
     end
   end
   redirect to '/users/errors'
 end
 
 delete '/sessions' do
-  session[:user] = nil
+  session[:user_id] = nil
   session[:property] = nil
-  erb :'static/index'
+  redirect to '/'
 end
 
 get '/users/new' do
@@ -29,4 +29,9 @@ end
 
 get '/users/errors' do
   erb :'users/errors'
+end
+
+get '/home' do
+  @properties = Property.all
+  erb :'users/home'
 end

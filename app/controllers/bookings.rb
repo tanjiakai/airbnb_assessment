@@ -8,7 +8,7 @@ get '/bookings/new' do
   erb :'bookings/new'
 end
 
-post '/bookings/new' do
+post '/bookings' do
   Booking.create(date: params[:date], user: session[:user], property: session[:property])
   redirect to '/bookings'
 end

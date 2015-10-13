@@ -1,19 +1,20 @@
-<h1>Properties</h1>
-<p><a href="/home">Home</a></p>
-<p><a href="/properties/new">New Property</a></p>
+<h1>Welcome to Pirated Airbnb</h1>
 <form action="/sessions" method="post">
   <input name="_method" type="hidden" value="delete" />
   <input type="submit" value="Logout">
 </form>
+
 <h4><a href="/bookings">My Bookings</a></h4>
 <h4><a href="/reviews">My Reviews</a></h4>
+<h4><a href="/properties">My Properties</a></h4>
+
 <% @properties.each do |x| %>
     <h3><a href="/properties/<%= x.id %>"><%= x.title %></a></h3>
     <p>About: <br> <%= x.description %></p>
     <p>Price: <%= x.price %></p>
     <p>Reviews: <% x.reviews.each do |y| %>
-          <p><%= y.description %></p>
-        <% end %>
+        <p><%= y.description %></p>
+    <% end %>
     </p>
 <% end %><br>
 

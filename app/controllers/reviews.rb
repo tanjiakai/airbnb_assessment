@@ -1,6 +1,5 @@
 get '/reviews' do
-  @reviews = Review.where(user: session[:user])
-  @user = session[:user]
+  @reviews = Review.where(user: @current_user)
   erb :'reviews/index'
 end
 
@@ -8,7 +7,7 @@ get '/reviews/new' do
   erb :'reviews/new'
 end
 
-post '/reviews/new' do
+post '/reviews' do
   Review.create(description: params[:review], property: session[:property], user: session[:user])
   redirect to '/properties'
 end
@@ -21,7 +20,6 @@ end
 
 get '/reviews/:id/edit' do
   @review = Review.find(params[:id])
-
   erb :'reviews/edit'
 end
 
@@ -33,5 +31,7 @@ put '/reviews/:id' do
 end
 
 delete '/reviews/:id' do
-
+  review = Review.find(params[:id])
+  review.delete
+  redirect to '/reviews'
 end

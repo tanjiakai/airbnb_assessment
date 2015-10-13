@@ -1,0 +1,21 @@
+<h1>Edit Property</h1>
+<form action="/properties/<%= @property.id %>" method="post">
+  <input name="_method" type="hidden" value="put" />
+  <h2><%= @property.title %></h2>
+  <input type="text" name="title" placeholder="New Title">
+  <h3>About:</h3>
+  <p><%= @property.description %></p>
+  <input type="text" name="description" placeholder="New Description">
+  <h3>Price:</h3>
+  <p><%= @property.price %></p>
+  <input type="number" name="price">
+  <p><input type="submit" value="Update"></p>
+</form>
+
+<form action="/properties/<%= @property.id %>" method="post">
+  <input name="_method" type="hidden" value="delete" />
+  <input type="submit" value="Delete">
+</form>
+<a href="/reviews/new">Post a review!</a>
+
+<p><a href="/home">Home</a></p>
