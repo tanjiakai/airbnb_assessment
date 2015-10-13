@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :bookings
   has_many :properties, :through => :bookings
   has_many :reviews
+  has_many :properties
 
   def self.exist?(username)
     User.find_by(username: username)

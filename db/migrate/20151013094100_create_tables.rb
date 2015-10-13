@@ -12,6 +12,7 @@ class CreateTables < ActiveRecord::Migration
       t.string :title, null: false
       t.string :description, null: false
       t.integer :price, null: false
+      t.belongs_to :user, index: true
     end
 
     create_table :reviews do |t|
