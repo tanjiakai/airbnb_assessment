@@ -1,0 +1,11 @@
+<h1>Edit Your Booking</h1>
+<h2><%= @booking.property.description %></h2>
+<form action="/bookings/<%=@booking.id%>" method="post">
+  <input name="_method" type="hidden" value="put" />
+  <input type="date" name="date"/>
+  <input type="submit" value="Update Your Booking"/>
+</form>
+<form action="/bookings/<%=@booking.id%>" method="post">
+  <input name="_method" type="hidden" value="delete" />
+  <input type="submit" value="Delete This Booking"/>
+</form>

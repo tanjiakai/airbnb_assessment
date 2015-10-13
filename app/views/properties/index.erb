@@ -1,0 +1,17 @@
+<h1>Properties</h1>
+<% @properties.each do |x| %>
+    <h2><a href="/properties/<%= x.id %>"><%= x.title %></a></h2>
+    <p>About: <br> <%= x.description %></p>
+    <p>Price: <%= x.price %></p>
+    <p>Reviews: <% x.reviews.each do |y| %>
+          <p><%= y.description %></p>
+        <% end %>
+    </p>
+<% end %><br>
+
+<form action="/sessions" method="post">
+  <input name="_method" type="hidden" value="delete" />
+  <input type="submit" value="Logout">
+</form>
+<h2><a href="/bookings">My Bookings</a></h2>
+<h2><a href="/reviews">My Reviews</a></h2>

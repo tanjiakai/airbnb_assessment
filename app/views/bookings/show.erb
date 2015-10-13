@@ -1,0 +1,10 @@
+<h>Booking ID: <%= @booking.id %></h>
+<h2><%= @booking.property.description %></h2>
+<p>Price: <%= @booking.property.price %></p>
+<p>Date: <%= @booking.date %></p>
+<a href="/bookings/<%=@booking.id%>/edit">Edit Booking</a>
+<a href="/properties">Home</a>
+<form action="/sessions" method="post">
+  <input name="_method" type="hidden" value="delete" />
+  <input type="submit" value="Logout">
+</form>

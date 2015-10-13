@@ -1,0 +1,10 @@
+<h1>My Bookings:</h1>
+<% @bookings.each do |x| %>
+    <h1><a href="/bookings/<%= x.id %>"><%= x.property.title %></a></h1>
+    <p><%= x.date %></p>
+<% end %>
+<form action="/sessions" method="post">
+  <input name="_method" type="hidden" value="delete" />
+  <input type="submit" value="Logout">
+</form>
+<a href="/properties">Home</a>

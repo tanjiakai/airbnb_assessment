@@ -1,0 +1,7 @@
+<h1>Edit Review</h1>
+<p><%= @review.description %></p>
+<form action="/reviews/<%=@review.id%>" method="post">
+  <input name="_method" type="hidden" value="put" />
+  <input type="text" name="review">
+  <input type="submit" value="Update Review">
+</form>
